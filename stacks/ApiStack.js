@@ -7,6 +7,9 @@ export function ApiStack({ stack, app }) {
     //Create the API
     const api =  new Api(stack, "Api", {
         defaults: {
+            //Use AWS_IAW across all the routes
+            authorizer: "iam",
+            
             function: {
                 permissions: [table],
                 environment: {
