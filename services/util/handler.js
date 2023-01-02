@@ -16,6 +16,11 @@ export default function handler(lambda) {
         return {
             statusCode,
             body: JSON.stringify(body),
+            //Configure the CORS headers
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
+              },
         };
     };
 }
