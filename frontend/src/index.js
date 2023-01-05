@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Amplify } from 'aws-amplify';
 import config from './config';
+import { initSentry } from './lib/errorLib';
+
+initSentry();
 
 Amplify.configure({
   Auth: {
