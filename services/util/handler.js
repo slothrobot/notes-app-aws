@@ -1,14 +1,20 @@
+import * as debug from './debug';
+
 export default function handler(lambda) {
     return async function (event, context) {
         let body, statusCode;
+
+        //start debugger
+        debug.init(event);
 
         try {
             //Run lambda
             body = await lambda(event, context);
             statusCode = 200;
         } catch (e) {
-            //Prints the full error
-            console.error(e);
+            //Prints debug messages
+            debug.flush(e);
+            
             body = { error: e.message };
             statusCode = 500;
         }
