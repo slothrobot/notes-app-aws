@@ -1,9 +1,6 @@
 import handler from "../util/handler";
 import dynamoDb from "../util/dynamodb";
 
-// Some faulty code
-dynamoDb.notExist();
-
 export const main = handler(async (event) => {
   const params = {
     TableName: process.env.tableName,
